@@ -1,6 +1,5 @@
 package ru.netology.data;
 
-import com.codeborne.selenide.ElementsCollection;
 import lombok.Value;
 
 public class DataHelper {
