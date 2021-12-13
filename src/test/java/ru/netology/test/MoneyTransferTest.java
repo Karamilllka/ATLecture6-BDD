@@ -13,7 +13,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-
 public class MoneyTransferTest {
     @Test
     public void shouldTransferFromFirstToSecond() {
@@ -48,7 +47,7 @@ public class MoneyTransferTest {
         int balanceOfSecondCardBefore = DashboardPage.getCurrentBalanceOfSecondCard();
         val transferPage = dashboardPage.firstCard();
         val cardInfo = DataHelper.getSecondCardInfo();
-        transferPage.makeTransfer( amount, cardInfo);
+        transferPage.makeTransfer(amount, cardInfo);
         int balanceAfterTransferFirstCard = DataHelper.balanceOfSecondCardAfterTransfer(balanceOfFirstCardBefore, amount);
         int balanceAfterTransferSecondCard = DataHelper.balanceOfFirstCardAfterTransfer(balanceOfSecondCardBefore, amount);
         int balanceOfFirstCardAfter = DashboardPage.getCurrentBalanceOfFirstCard();
@@ -58,7 +57,7 @@ public class MoneyTransferTest {
     }
 
     @Test
-    void shouldNotTransferMoreThanRestOfBalance() {
+    void shouldTransferMoreBalance() {
         int amount = 11000;
         val loginPage = open("http://localhost:9999", LoginPage.class);
         val authInfo = DataHelper.getAuthInfo();
